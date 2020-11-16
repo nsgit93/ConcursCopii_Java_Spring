@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.cell.PropertyValueFactory?>
+
+
+<?import javafx.geometry.Insets?>
+<?import javafx.collections.FXCollections?>
+<BorderPane fx:id="mainWindow" fx:controller="Client.Controller.ControllerMainScreen" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+    <top>
+        <HBox>
+            <padding><Insets top="10" right="10" bottom="10" left="10"/></padding>
+            <children>
+                <GridPane alignment="center" hgap="10" vgap="10">
+                    <Button onAction="#logout" text="Logout" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                    <Label text="Nr. participanti la proba" GridPane.columnIndex="1" GridPane.rowIndex="0"/>
+                    <ComboBox fx:id="probaNrBox" GridPane.columnIndex="2" GridPane.rowIndex="0">
+                        <items>
+                            <FXCollections fx:factory="observableArrayList">
+                                <String fx:value="Desen"/>
+                                <String fx:value="Cautare comoara"/>
+                                <String fx:value="Poezie"/>
+                            </FXCollections>
+                        </items>
+                    </ComboBox>
+                    <TextField fx:id="textNrPart" GridPane.columnIndex="3" GridPane.rowIndex="0"/>
+                    <Label text="Filtrare" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+                    <CheckBox text="Proba" fx:id="checkProbaFiltrare" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+                    <ComboBox fx:id="probaFilterBox" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                        <items>
+                            <FXCollections fx:factory="observableArrayList">
+                                <String fx:value="Desen"/>
+                                <String fx:value="Cautare comoara"/>
+                                <String fx:value="Poezie"/>
+                            </FXCollections>
+                        </items>
+                    </ComboBox>
+                    <CheckBox text="Varsta (ani)" fx:id="checkVarstaFiltrare" GridPane.columnIndex="3" GridPane.rowIndex="1"/>
+                    <ComboBox fx:id="varstaFilterBox" GridPane.columnIndex="4" GridPane.rowIndex="1">
+                        <items>
+                            <FXCollections fx:factory="observableArrayList">
+                                <String fx:value="6-8"/>
+                                <String fx:value="9-11"/>
+                                <String fx:value="12-15"/>
+                            </FXCollections>
+                        </items>
+                    </ComboBox>
+                </GridPane>
+            </children>
+        </HBox>
+    </top>
+    <center>
+        <GridPane alignment="center" hgap="10" vgap="10">
+            <Label text="Tabel Participanti" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+            <Label text="Tabel Participari" GridPane.columnIndex="1" GridPane.rowIndex="0"/>
+        <TableView fx:id="tableParticipanti" GridPane.columnIndex="0" GridPane.rowIndex="1">
+            <columns>
+                <TableColumn text="ID">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="id"/>
+                    </cellValueFactory>
+                </TableColumn>
+                <TableColumn text="Nume">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="nume"/>
+                    </cellValueFactory>
+                </TableColumn>
+                <TableColumn text="Varsta">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="varsta"/>
+                    </cellValueFactory>
+                </TableColumn>
+                <TableColumn text="Numar Participari">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="nrParticipari"/>
+                    </cellValueFactory>
+                </TableColumn>
+            </columns>
+        </TableView>
+            <TableView fx:id="tableParticipari" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                <columns>
+                    <TableColumn text="ID">
+                        <cellValueFactory>
+                            <PropertyValueFactory property="id"/>
+                        </cellValueFactory>
+                    </TableColumn>
+                    <TableColumn text="ID participant">
+                        <cellValueFactory>
+                            <PropertyValueFactory property="idParticipant"/>
+                        </cellValueFactory>
+                    </TableColumn>
+                    <TableColumn text="Proba">
+                        <cellValueFactory>
+                            <PropertyValueFactory property="proba"/>
+                        </cellValueFactory>
+                    </TableColumn>
+                    <TableColumn text="Categorie varsta">
+                        <cellValueFactory>
+                            <PropertyValueFactory property="categorieVarsta"/>
+                        </cellValueFactory>
+                    </TableColumn>
+                </columns>
+            </TableView>
+        </GridPane>
+    </center>
+    <left>
+        <HBox>
+            <padding><Insets top="10" right="10" bottom="10" left="10"/></padding>
+        </HBox>
+    </left>
+    <right>
+        <HBox>
+            <padding><Insets top="10" right="10" bottom="10" left="10"/></padding>
+        </HBox>
+    </right>
+    <bottom>
+        <HBox>
+            <padding>
+                <Insets top="10" bottom="10" left="10" right="10"/>
+            </padding>
+            <children>
+                <GridPane alignment="center" hgap="10" vgap="10">
+                    <Label text="Nume" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+                    <TextField fx:id="textNume" GridPane.columnIndex="1" GridPane.rowIndex="0"/>
+                    <Label text="Varsta" GridPane.columnIndex="2" GridPane.rowIndex="0"/>
+                    <TextField fx:id="textVarsta" GridPane.columnIndex="3" GridPane.rowIndex="0"/>
+                    <Label text="Proba" GridPane.columnIndex="4" GridPane.rowIndex="0"/>
+                    <ComboBox fx:id="probaBox" GridPane.columnIndex="5" GridPane.rowIndex="0">
+                        <items>
+                            <FXCollections fx:factory="observableArrayList">
+                                <String fx:value="Desen"/>
+                                <String fx:value="Cautare comoara"/>
+                                <String fx:value="Poezie"/>
+                            </FXCollections>
+                        </items>
+                    </ComboBox>
+                    <Button fx:id="btnAdaugaProba" onAction="#addParticipare" text="Adauga Proba" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+                    <Button fx:id="btnAdaugaParticipant" onAction="#addParticipant" text="Adauga Participant" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+                </GridPane>
+            </children>
+        </HBox>
+    </bottom>
+</BorderPane>

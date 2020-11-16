@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.cell.PropertyValueFactory?>
+
+
+<?import javafx.geometry.Insets?>
+<BorderPane fx:id="loginWindow" fx:controller="Client.Controller.ControllerLoginScreen" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+    <center>
+        <VBox>
+            <padding>
+                <Insets top="300"  left="270" bottom="300" right="300"/>
+            </padding>
+            <children>
+                <Label text="User" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+                <TextField fx:id="textUser" GridPane.columnIndex="1" GridPane.rowIndex="0"/>
+                <Label text="Parola" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+                <PasswordField fx:id="textParola" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+                <Label fx:id="lblEroareLogare" GridPane.columnIndex="0" GridPane.rowIndex="2"/>
+                <Button onAction="#logare" text="Logare" GridPane.columnIndex="0" GridPane.rowIndex="3"/>
+            </children>
+        </VBox>
+    </center>
+</BorderPane>
