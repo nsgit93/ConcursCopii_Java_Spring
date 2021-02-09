@@ -62,3 +62,6 @@ A new participation can be added by pressing the "Adauga participare" button, wh
 The user data is validated before storing it in the database.
 ```
 
+## Acknowledgements
+The backgroung image from the login screen was downloaded from www.123rf.com
+
